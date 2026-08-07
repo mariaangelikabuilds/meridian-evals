@@ -28,7 +28,15 @@ def parse_verdict(raw: str) -> dict:
     start, end = stripped.find("{"), stripped.rfind("}")
     if start == -1 or end == -1:
         raise ValueError("no JSON object in model output")
-    v = json.loads(stripped[start : end + 1])
+    candidate = stripped[start : end + 1]
+    try:
+        v = json.loads(candidate)
+    except json.JSONDecodeError:
+        # A model that writes a multi-line reasoning field emits raw newlines
+        # inside a JSON string, which is invalid JSON. Escape them and retry
+        # before declaring the output unusable; "unterminated string" at a
+        # consistent offset is this, not truncation.
+        v = json.loads(re.sub(r"(?<!\\)[\n\r\t]", lambda m: {"\n": "\\n", "\r": "\\r", "\t": "\\t"}[m.group()], candidate))
     if v.get("severity") not in SEVERITY_RANK:
         raise ValueError(f"bad severity: {v.get('severity')}")
     if not isinstance(v.get("confidence"), (int, float)):
