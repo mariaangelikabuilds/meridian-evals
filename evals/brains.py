@@ -23,9 +23,25 @@ AZURE_OUT = float(os.environ.get("AZURE_PRICE_OUT", 1.60))
 
 
 def _post(url: str, headers: dict, payload: dict, timeout: int = 60) -> dict:
-    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json", **headers})
-    with urllib.request.urlopen(req, timeout=timeout) as res:
-        return json.loads(res.read())
+    """Retry on transient upstream failures. A 429 or 5xx is the provider having a
+    moment, not the brain being wrong; without this the eval scores infrastructure
+    noise as bad judgment, which is how a green suite starts lying."""
+    last = None
+    for attempt in range(1, 4):
+        req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json", **headers})
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as res:
+                return json.loads(res.read())
+        except urllib.error.HTTPError as err:
+            last = err
+            if err.code not in (429, 500, 502, 503, 504) or attempt == 3:
+                raise RuntimeError(f"HTTP {err.code}: {err.read()[:180].decode(errors='replace')}") from err
+        except urllib.error.URLError as err:
+            last = err
+            if attempt == 3:
+                raise
+        time.sleep(attempt * 2)
+    raise RuntimeError(f"unreachable: {last}")
 
 
 def run_claude(case: dict) -> dict:
