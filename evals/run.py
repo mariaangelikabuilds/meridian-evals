@@ -23,7 +23,8 @@ def run(brain_names: list[str]) -> dict:
                 result = BRAINS[name](case)
                 rows.append(score_case(case, result))
             except Exception as err:
-                rows.append({"id": case["id"], "passed": False, "checks": {"error": False}, "severity": "-", "category": "-", "confidence": 0, "latency_s": 0, "cost_usd": 0, "error": str(err)[:120]})
+                rows.append({"id": case["id"], "passed": False, "checks": {"error": False}, "context_dependent": bool(case.get("context_dependent")), "severity": "-", "category": "-", "confidence": 0, "latency_s": 0, "cost_usd": 0, "error": str(err)[:160]})
+                print(f"    error: {str(err)[:160]}", file=sys.stderr)
             print(f"  {name} {case['id']}: {'pass' if rows[-1]['passed'] else 'FAIL'}", file=sys.stderr)
         out[name] = {"rows": rows, "summary": summarize(rows)}
     return out
@@ -33,12 +34,12 @@ def report(results: dict) -> str:
     lines = ["# Meridian triage brains, scored", ""]
     lines.append("The same golden set of labeled incidents, real and adversarial, fired at both production brains.")
     lines.append("")
-    lines.append("| brain | pass rate | cases | total cost | median latency | failures |")
-    lines.append("|---|---|---|---|---|---|")
+    lines.append("| brain | pass rate | cases | total cost | median latency | failures | known context gaps |")
+    lines.append("|---|---|---|---|---|---|---|")
     for name, r in results.items():
         s = r["summary"]
         model = "claude-sonnet-5 (Anthropic API)" if name == "claude" else "gpt-4.1-mini (Azure Functions + Azure OpenAI)"
-        lines.append(f"| {model} | {s['pass_rate']:.0%} | {s['passed']}/{s['cases']} | ${s['total_cost_usd']} | {s['median_latency_s']}s | {', '.join(s['failures']) or 'none'} |")
+        lines.append(f"| {model} | {s['pass_rate']:.0%} | {s['passed']}/{s['cases']} | ${s['total_cost_usd']} | {s['median_latency_s']}s | {', '.join(s['failures']) or 'none'} | {', '.join(s.get('known_context_gaps', [])) or 'none'} |")
     lines.append("")
     for name, r in results.items():
         lines.append(f"## {name}: per case")
@@ -46,7 +47,10 @@ def report(results: dict) -> str:
         lines.append("| case | pass | severity | category | conf | latency | cost |")
         lines.append("|---|---|---|---|---|---|---|")
         for row in r["rows"]:
-            lines.append(f"| {row['id']} | {'yes' if row['passed'] else 'NO: ' + ','.join(k for k, v in row['checks'].items() if not v)} | {row['severity']} | {row['category']} | {row['confidence']} | {row['latency_s']}s | ${row['cost_usd']} |")
+            mark = "yes" if row["passed"] else ("known gap" if row.get("context_dependent") else "NO: " + ",".join(k for k, v in row["checks"].items() if not v))
+            if row.get("error"):
+                mark += f" ({row['error'][:60]})"
+            lines.append(f"| {row['id']} | {mark} | {row['severity']} | {row['category']} | {row['confidence']} | {row['latency_s']}s | ${row['cost_usd']} |")
         lines.append("")
     return "\n".join(lines)
 

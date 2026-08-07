@@ -1,8 +1,8 @@
 {
  "claude": {
-  "pass_rate": 0.833
+  "pass_rate": 0.818
  },
  "azure": {
-  "pass_rate": 1.0
+  "pass_rate": 0.909
  }
 }

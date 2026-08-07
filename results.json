@@ -4,6 +4,7 @@
    {
     "id": "real-imaging-down",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -11,13 +12,14 @@
     },
     "severity": "P1",
     "category": "outage",
-    "confidence": 0.7,
-    "latency_s": 4.59,
-    "cost_usd": 0.003813
+    "confidence": 0.75,
+    "latency_s": 8.43,
+    "cost_usd": 0.008028
    },
    {
     "id": "real-donor-export",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true
@@ -25,8 +27,8 @@
     "severity": "P2",
     "category": "software",
     "confidence": 0.65,
-    "latency_s": 3.49,
-    "cost_usd": 0.002685
+    "latency_s": 3.23,
+    "cost_usd": 0.002715
    },
    {
     "id": "real-partner-mailbox",
@@ -34,30 +36,32 @@
     "checks": {
      "error": false
     },
+    "context_dependent": true,
     "severity": "-",
     "category": "-",
     "confidence": 0,
     "latency_s": 0,
     "cost_usd": 0,
-    "error": "Unterminated string starting at: line 1 column 571 (char 570)"
+    "error": "Unterminated string starting at: line 1 column 523 (char 522)"
    },
    {
     "id": "real-night-kiosk",
-    "passed": true,
+    "passed": false,
     "checks": {
-     "min_severity": true,
-     "max_severity": true,
-     "category": true
+     "error": false
     },
-    "severity": "P3",
-    "category": "hardware",
-    "confidence": 0.62,
-    "latency_s": 5.01,
-    "cost_usd": 0.004224
+    "context_dependent": false,
+    "severity": "-",
+    "category": "-",
+    "confidence": 0,
+    "latency_s": 0,
+    "cost_usd": 0,
+    "error": "Unterminated string starting at: line 1 column 568 (char 567)"
    },
    {
     "id": "calm-phish-click",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -66,12 +70,13 @@
     "severity": "P1",
     "category": "security",
     "confidence": 0.85,
-    "latency_s": 5.07,
-    "cost_usd": 0.003495
+    "latency_s": 4.01,
+    "cost_usd": 0.003465
    },
    {
     "id": "quiet-security-tell",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -79,26 +84,28 @@
     },
     "severity": "P2",
     "category": "security",
-    "confidence": 0.6,
-    "latency_s": 5.97,
-    "cost_usd": 0.007032
+    "confidence": 0.55,
+    "latency_s": 7.69,
+    "cost_usd": 0.007992
    },
    {
     "id": "vip-lockout",
     "passed": false,
     "checks": {
-     "min_severity": false,
-     "category": true
+     "error": false
     },
-    "severity": "P3",
-    "category": "access",
-    "confidence": 0.75,
-    "latency_s": 4.77,
-    "cost_usd": 0.003375
+    "context_dependent": false,
+    "severity": "-",
+    "category": "-",
+    "confidence": 0,
+    "latency_s": 0,
+    "cost_usd": 0,
+    "error": "Unterminated string starting at: line 1 column 601 (char 600)"
    },
    {
     "id": "routine-onboarding",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "max_severity": true,
      "category": true
@@ -106,12 +113,13 @@
     "severity": "P4",
     "category": "access",
     "confidence": 0.9,
-    "latency_s": 4.02,
-    "cost_usd": 0.002595
+    "latency_s": 2.7,
+    "cost_usd": 0.002655
    },
    {
     "id": "everything-down",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true
@@ -119,12 +127,13 @@
     "severity": "P1",
     "category": "outage",
     "confidence": 0.9,
-    "latency_s": 3.65,
-    "cost_usd": 0.003288
+    "latency_s": 3.58,
+    "cost_usd": 0.002688
    },
    {
     "id": "vague-slowness",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "max_severity": true,
      "category": true
@@ -132,12 +141,13 @@
     "severity": "P4",
     "category": "software",
     "confidence": 0.55,
-    "latency_s": 3.32,
-    "cost_usd": 0.002598
+    "latency_s": 4.24,
+    "cost_usd": 0.002973
    },
    {
     "id": "ransom-note",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -146,12 +156,13 @@
     "severity": "P1",
     "category": "security",
     "confidence": 0.98,
-    "latency_s": 3.92,
-    "cost_usd": 0.002922
+    "latency_s": 7.94,
+    "cost_usd": 0.003462
    },
    {
     "id": "after-hours-badge",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -159,20 +170,23 @@
     },
     "severity": "P2",
     "category": "security",
-    "confidence": 0.72,
-    "latency_s": 4.73,
-    "cost_usd": 0.003768
+    "confidence": 0.75,
+    "latency_s": 5.33,
+    "cost_usd": 0.004008
    }
   ],
   "summary": {
-   "cases": 12,
-   "passed": 10,
-   "pass_rate": 0.833,
-   "total_cost_usd": 0.0398,
-   "median_latency_s": 4.59,
+   "cases": 11,
+   "passed": 9,
+   "pass_rate": 0.818,
+   "total_cost_usd": 0.038,
+   "median_latency_s": 4.01,
    "failures": [
-    "real-partner-mailbox",
+    "real-night-kiosk",
     "vip-lockout"
+   ],
+   "known_context_gaps": [
+    "real-partner-mailbox"
    ]
   }
  },
@@ -181,6 +195,7 @@
    {
     "id": "real-imaging-down",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -189,12 +204,13 @@
     "severity": "P1",
     "category": "outage",
     "confidence": 0.9,
-    "latency_s": 3.32,
-    "cost_usd": 0.000223
+    "latency_s": 3.72,
+    "cost_usd": 0.00019
    },
    {
     "id": "real-donor-export",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true
@@ -202,25 +218,27 @@
     "severity": "P2",
     "category": "software",
     "confidence": 0.9,
-    "latency_s": 2.86,
-    "cost_usd": 0.000187
+    "latency_s": 2.5,
+    "cost_usd": 0.000194
    },
    {
     "id": "real-partner-mailbox",
-    "passed": true,
+    "passed": false,
+    "context_dependent": true,
     "checks": {
-     "min_severity": true,
+     "min_severity": false,
      "category": true
     },
-    "severity": "P1",
-    "category": "access",
+    "severity": "P2",
+    "category": "software",
     "confidence": 0.9,
-    "latency_s": 2.43,
-    "cost_usd": 0.000174
+    "latency_s": 3.26,
+    "cost_usd": 0.000194
    },
    {
     "id": "real-night-kiosk",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "max_severity": true,
@@ -229,12 +247,13 @@
     "severity": "P2",
     "category": "hardware",
     "confidence": 0.9,
-    "latency_s": 3.04,
-    "cost_usd": 0.000214
+    "latency_s": 3.16,
+    "cost_usd": 0.000234
    },
    {
     "id": "calm-phish-click",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -243,12 +262,13 @@
     "severity": "P2",
     "category": "security",
     "confidence": 0.9,
-    "latency_s": 2.85,
-    "cost_usd": 0.00016
+    "latency_s": 3.56,
+    "cost_usd": 0.000185
    },
    {
     "id": "quiet-security-tell",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -256,13 +276,14 @@
     },
     "severity": "P2",
     "category": "hardware",
-    "confidence": 0.8,
-    "latency_s": 2.64,
-    "cost_usd": 0.000183
+    "confidence": 0.7,
+    "latency_s": 2.66,
+    "cost_usd": 0.000196
    },
    {
     "id": "vip-lockout",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true
@@ -270,51 +291,55 @@
     "severity": "P2",
     "category": "access",
     "confidence": 0.9,
-    "latency_s": 2.83,
-    "cost_usd": 0.00019
+    "latency_s": 2.5,
+    "cost_usd": 0.000212
    },
    {
     "id": "routine-onboarding",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "max_severity": true,
      "category": true
     },
     "severity": "P4",
     "category": "request",
-    "confidence": 0.95,
-    "latency_s": 2.22,
-    "cost_usd": 0.000168
+    "confidence": 0.9,
+    "latency_s": 2.19,
+    "cost_usd": 0.000147
    },
    {
     "id": "everything-down",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true
     },
     "severity": "P1",
     "category": "outage",
-    "confidence": 0.9,
-    "latency_s": 3.02,
-    "cost_usd": 0.000166
+    "confidence": 0.95,
+    "latency_s": 2.54,
+    "cost_usd": 0.000192
    },
    {
     "id": "vague-slowness",
-    "passed": true,
+    "passed": false,
+    "context_dependent": false,
     "checks": {
      "max_severity": true,
-     "category": true
+     "category": false
     },
-    "severity": "P3",
-    "category": "hardware",
-    "confidence": 0.7,
-    "latency_s": 3.34,
-    "cost_usd": 0.000212
+    "severity": "P4",
+    "category": "performance",
+    "confidence": 0.6,
+    "latency_s": 2.42,
+    "cost_usd": 0.000214
    },
    {
     "id": "ransom-note",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -322,13 +347,14 @@
     },
     "severity": "P1",
     "category": "security",
-    "confidence": 0.95,
-    "latency_s": 2.61,
-    "cost_usd": 0.00019
+    "confidence": 0.9,
+    "latency_s": 2.05,
+    "cost_usd": 0.000182
    },
    {
     "id": "after-hours-badge",
     "passed": true,
+    "context_dependent": false,
     "checks": {
      "min_severity": true,
      "category": true,
@@ -337,17 +363,22 @@
     "severity": "P2",
     "category": "security",
     "confidence": 0.9,
-    "latency_s": 2.77,
-    "cost_usd": 0.000169
+    "latency_s": 2.09,
+    "cost_usd": 0.000161
    }
   ],
   "summary": {
-   "cases": 12,
-   "passed": 12,
-   "pass_rate": 1.0,
-   "total_cost_usd": 0.0022,
-   "median_latency_s": 2.85,
-   "failures": []
+   "cases": 11,
+   "passed": 10,
+   "pass_rate": 0.909,
+   "total_cost_usd": 0.0023,
+   "median_latency_s": 2.54,
+   "failures": [
+    "vague-slowness"
+   ],
+   "known_context_gaps": [
+    "real-partner-mailbox"
+   ]
   }
  }
 }

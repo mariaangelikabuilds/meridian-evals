@@ -34,7 +34,7 @@ def _post(url: str, headers: dict, payload: dict, timeout: int = 60) -> dict:
                 return json.loads(res.read())
         except urllib.error.HTTPError as err:
             last = err
-            if err.code not in (429, 500, 502, 503, 504) or attempt == 3:
+            if err.code not in (429, 500, 502, 503, 504, 529) or attempt == 3:
                 raise RuntimeError(f"HTTP {err.code}: {err.read()[:180].decode(errors='replace')}") from err
         except urllib.error.URLError as err:
             last = err
