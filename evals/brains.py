@@ -45,17 +45,11 @@ def _post(url: str, headers: dict, payload: dict, timeout: int = 60) -> dict:
 
 
 def run_claude(case: dict) -> dict:
+    """Escalate the cap on truncation. A long reasoning field hits max_tokens and
+    the JSON arrives unterminated; retrying at the same cap just truncates again.
+    Same failure mode the fleet hit in production, same fix."""
     t0 = time.time()
-    body = _post(
-        "https://api.anthropic.com/v1/messages",
-        {"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01"},
-        {
-            "model": os.environ.get("CLAUDE_MODEL", "claude-sonnet-5"),
-            "max_tokens": 3000,
-            "system": SYSTEM,
-            "messages": [{"role": "user", "content": f"Client: {case['client']}\nSubject: {case['subject']}\n{case['body']}"}],
-        },
-    )
+    body = _claude_call(case, int(os.environ.get("CLAUDE_MAX_TOKENS", 1500)))
     latency = time.time() - t0
     text = "".join(b["text"] for b in body["content"] if b["type"] == "text")
     verdict = parse_verdict(text)
@@ -63,6 +57,24 @@ def run_claude(case: dict) -> dict:
     usage = body["usage"]
     cost = (usage["input_tokens"] * CLAUDE_IN + usage["output_tokens"] * CLAUDE_OUT) / 1e6
     return {"verdict": verdict, "floor": floor, "latency_s": round(latency, 2), "cost_usd": round(cost, 6)}
+
+
+def _claude_call(case: dict, cap: int) -> dict:
+    for _ in range(3):
+        body = _post(
+            "https://api.anthropic.com/v1/messages",
+            {"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01"},
+            {
+                "model": os.environ.get("CLAUDE_MODEL", "claude-sonnet-5"),
+                "max_tokens": cap,
+                "system": SYSTEM,
+                "messages": [{"role": "user", "content": f"Client: {case['client']}\nSubject: {case['subject']}\n{case['body']}"}],
+            },
+        )
+        if body.get("stop_reason") != "max_tokens":
+            return body
+        cap *= 2
+    return body
 
 
 def run_azure(case: dict) -> dict:
