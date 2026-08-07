@@ -1,0 +1,353 @@
+{
+ "claude": {
+  "rows": [
+   {
+    "id": "real-imaging-down",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P1",
+    "category": "outage",
+    "confidence": 0.7,
+    "latency_s": 4.59,
+    "cost_usd": 0.003813
+   },
+   {
+    "id": "real-donor-export",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true
+    },
+    "severity": "P2",
+    "category": "software",
+    "confidence": 0.65,
+    "latency_s": 3.49,
+    "cost_usd": 0.002685
+   },
+   {
+    "id": "real-partner-mailbox",
+    "passed": false,
+    "checks": {
+     "error": false
+    },
+    "severity": "-",
+    "category": "-",
+    "confidence": 0,
+    "latency_s": 0,
+    "cost_usd": 0,
+    "error": "Unterminated string starting at: line 1 column 571 (char 570)"
+   },
+   {
+    "id": "real-night-kiosk",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "max_severity": true,
+     "category": true
+    },
+    "severity": "P3",
+    "category": "hardware",
+    "confidence": 0.62,
+    "latency_s": 5.01,
+    "cost_usd": 0.004224
+   },
+   {
+    "id": "calm-phish-click",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P1",
+    "category": "security",
+    "confidence": 0.85,
+    "latency_s": 5.07,
+    "cost_usd": 0.003495
+   },
+   {
+    "id": "quiet-security-tell",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P2",
+    "category": "security",
+    "confidence": 0.6,
+    "latency_s": 5.97,
+    "cost_usd": 0.007032
+   },
+   {
+    "id": "vip-lockout",
+    "passed": false,
+    "checks": {
+     "min_severity": false,
+     "category": true
+    },
+    "severity": "P3",
+    "category": "access",
+    "confidence": 0.75,
+    "latency_s": 4.77,
+    "cost_usd": 0.003375
+   },
+   {
+    "id": "routine-onboarding",
+    "passed": true,
+    "checks": {
+     "max_severity": true,
+     "category": true
+    },
+    "severity": "P4",
+    "category": "access",
+    "confidence": 0.9,
+    "latency_s": 4.02,
+    "cost_usd": 0.002595
+   },
+   {
+    "id": "everything-down",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true
+    },
+    "severity": "P1",
+    "category": "outage",
+    "confidence": 0.9,
+    "latency_s": 3.65,
+    "cost_usd": 0.003288
+   },
+   {
+    "id": "vague-slowness",
+    "passed": true,
+    "checks": {
+     "max_severity": true,
+     "category": true
+    },
+    "severity": "P4",
+    "category": "software",
+    "confidence": 0.55,
+    "latency_s": 3.32,
+    "cost_usd": 0.002598
+   },
+   {
+    "id": "ransom-note",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P1",
+    "category": "security",
+    "confidence": 0.98,
+    "latency_s": 3.92,
+    "cost_usd": 0.002922
+   },
+   {
+    "id": "after-hours-badge",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P2",
+    "category": "security",
+    "confidence": 0.72,
+    "latency_s": 4.73,
+    "cost_usd": 0.003768
+   }
+  ],
+  "summary": {
+   "cases": 12,
+   "passed": 10,
+   "pass_rate": 0.833,
+   "total_cost_usd": 0.0398,
+   "median_latency_s": 4.59,
+   "failures": [
+    "real-partner-mailbox",
+    "vip-lockout"
+   ]
+  }
+ },
+ "azure": {
+  "rows": [
+   {
+    "id": "real-imaging-down",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P1",
+    "category": "outage",
+    "confidence": 0.9,
+    "latency_s": 3.32,
+    "cost_usd": 0.000223
+   },
+   {
+    "id": "real-donor-export",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true
+    },
+    "severity": "P2",
+    "category": "software",
+    "confidence": 0.9,
+    "latency_s": 2.86,
+    "cost_usd": 0.000187
+   },
+   {
+    "id": "real-partner-mailbox",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true
+    },
+    "severity": "P1",
+    "category": "access",
+    "confidence": 0.9,
+    "latency_s": 2.43,
+    "cost_usd": 0.000174
+   },
+   {
+    "id": "real-night-kiosk",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "max_severity": true,
+     "category": true
+    },
+    "severity": "P2",
+    "category": "hardware",
+    "confidence": 0.9,
+    "latency_s": 3.04,
+    "cost_usd": 0.000214
+   },
+   {
+    "id": "calm-phish-click",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P2",
+    "category": "security",
+    "confidence": 0.9,
+    "latency_s": 2.85,
+    "cost_usd": 0.00016
+   },
+   {
+    "id": "quiet-security-tell",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P2",
+    "category": "hardware",
+    "confidence": 0.8,
+    "latency_s": 2.64,
+    "cost_usd": 0.000183
+   },
+   {
+    "id": "vip-lockout",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true
+    },
+    "severity": "P2",
+    "category": "access",
+    "confidence": 0.9,
+    "latency_s": 2.83,
+    "cost_usd": 0.00019
+   },
+   {
+    "id": "routine-onboarding",
+    "passed": true,
+    "checks": {
+     "max_severity": true,
+     "category": true
+    },
+    "severity": "P4",
+    "category": "request",
+    "confidence": 0.95,
+    "latency_s": 2.22,
+    "cost_usd": 0.000168
+   },
+   {
+    "id": "everything-down",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true
+    },
+    "severity": "P1",
+    "category": "outage",
+    "confidence": 0.9,
+    "latency_s": 3.02,
+    "cost_usd": 0.000166
+   },
+   {
+    "id": "vague-slowness",
+    "passed": true,
+    "checks": {
+     "max_severity": true,
+     "category": true
+    },
+    "severity": "P3",
+    "category": "hardware",
+    "confidence": 0.7,
+    "latency_s": 3.34,
+    "cost_usd": 0.000212
+   },
+   {
+    "id": "ransom-note",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P1",
+    "category": "security",
+    "confidence": 0.95,
+    "latency_s": 2.61,
+    "cost_usd": 0.00019
+   },
+   {
+    "id": "after-hours-badge",
+    "passed": true,
+    "checks": {
+     "min_severity": true,
+     "category": true,
+     "security_floor": true
+    },
+    "severity": "P2",
+    "category": "security",
+    "confidence": 0.9,
+    "latency_s": 2.77,
+    "cost_usd": 0.000169
+   }
+  ],
+  "summary": {
+   "cases": 12,
+   "passed": 12,
+   "pass_rate": 1.0,
+   "total_cost_usd": 0.0022,
+   "median_latency_s": 2.85,
+   "failures": []
+  }
+ }
+}

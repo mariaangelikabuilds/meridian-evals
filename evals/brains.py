@@ -1,0 +1,63 @@
+"""The two production brains under evaluation. Both are the real deployed things:
+Claude via the Anthropic API with meridian-ops's triage prompt, and the Azure
+Functions brain (which applies its own ported gates server-side)."""
+import json
+import os
+import time
+import urllib.request
+
+from .gates import security_floor, parse_verdict
+
+SYSTEM = (
+    "You are the triage brain for an MSP service desk. Classify the incident.\n"
+    "Respond with a single JSON object and nothing else, no code fences.\n"
+    'Schema: {"severity":"P1|P2|P3|P4","category":"security|outage|hardware|software|network|access|request",'
+    '"confidence":0.0,"reasoning":"one paragraph"}'
+)
+
+# per-million pricing for cost scoring; override via env when the sheet changes
+CLAUDE_IN = float(os.environ.get("CLAUDE_PRICE_IN", 3.0))
+CLAUDE_OUT = float(os.environ.get("CLAUDE_PRICE_OUT", 15.0))
+AZURE_IN = float(os.environ.get("AZURE_PRICE_IN", 0.40))
+AZURE_OUT = float(os.environ.get("AZURE_PRICE_OUT", 1.60))
+
+
+def _post(url: str, headers: dict, payload: dict, timeout: int = 60) -> dict:
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json", **headers})
+    with urllib.request.urlopen(req, timeout=timeout) as res:
+        return json.loads(res.read())
+
+
+def run_claude(case: dict) -> dict:
+    t0 = time.time()
+    body = _post(
+        "https://api.anthropic.com/v1/messages",
+        {"x-api-key": os.environ["ANTHROPIC_API_KEY"], "anthropic-version": "2023-06-01"},
+        {
+            "model": os.environ.get("CLAUDE_MODEL", "claude-sonnet-5"),
+            "max_tokens": 3000,
+            "system": SYSTEM,
+            "messages": [{"role": "user", "content": f"Client: {case['client']}\nSubject: {case['subject']}\n{case['body']}"}],
+        },
+    )
+    latency = time.time() - t0
+    text = "".join(b["text"] for b in body["content"] if b["type"] == "text")
+    verdict = parse_verdict(text)
+    verdict, floor = security_floor(case["subject"], case["body"], verdict)
+    usage = body["usage"]
+    cost = (usage["input_tokens"] * CLAUDE_IN + usage["output_tokens"] * CLAUDE_OUT) / 1e6
+    return {"verdict": verdict, "floor": floor, "latency_s": round(latency, 2), "cost_usd": round(cost, 6)}
+
+
+def run_azure(case: dict) -> dict:
+    t0 = time.time()
+    url = f"{os.environ['AZURE_BRAIN_URL']}?code={os.environ['AZURE_BRAIN_KEY']}"
+    body = _post(url, {}, {"subject": case["subject"], "body": case["body"], "client": case["client"]})
+    latency = time.time() - t0
+    floor = next((d for d in body["decisions"] if d["gate"] == "security-floor"), {"gate": "security-floor", "action": "pass"})
+    usage = body["usage"]
+    cost = (usage["prompt_tokens"] * AZURE_IN + usage["completion_tokens"] * AZURE_OUT) / 1e6
+    return {"verdict": body["verdict"], "floor": floor, "latency_s": round(latency, 2), "cost_usd": round(cost, 6)}
+
+
+BRAINS = {"claude": run_claude, "azure": run_azure}
