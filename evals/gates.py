@@ -32,11 +32,22 @@ def parse_verdict(raw: str) -> dict:
     try:
         v = json.loads(candidate)
     except json.JSONDecodeError:
-        # A model that writes a multi-line reasoning field emits raw newlines
-        # inside a JSON string, which is invalid JSON. Escape them and retry
-        # before declaring the output unusable; "unterminated string" at a
-        # consistent offset is this, not truncation.
-        v = json.loads(re.sub(r"(?<!\\)[\n\r\t]", lambda m: {"\n": "\\n", "\r": "\\r", "\t": "\\t"}[m.group()], candidate))
+        # Free-text prose inside a JSON field breaks strict parsing in two ways:
+        # raw newlines, and unescaped quotes when the model quotes the ticket
+        # back at you. Repair the newlines, then fall back to extracting the
+        # fields that carry the verdict. The reasoning text is commentary; the
+        # eval scores severity, category, and confidence, so a malformed
+        # reasoning string must not cost the model the case.
+        repaired = re.sub(r"(?<!\\)[\n\r\t]", lambda m: {"\n": "\\n", "\r": "\\r", "\t": "\\t"}[m.group()], candidate)
+        try:
+            v = json.loads(repaired)
+        except json.JSONDecodeError:
+            sev = re.search(r'"severity"\s*:\s*"(P[1-4])"', repaired)
+            cat = re.search(r'"category"\s*:\s*"(\w+)"', repaired)
+            conf = re.search(r'"confidence"\s*:\s*([0-9.]+)', repaired)
+            if not (sev and cat and conf):
+                raise ValueError("no parsable verdict in model output")
+            v = {"severity": sev.group(1), "category": cat.group(1), "confidence": float(conf.group(1)), "reasoning": "(recovered by field extraction)"}
     if v.get("severity") not in SEVERITY_RANK:
         raise ValueError(f"bad severity: {v.get('severity')}")
     if not isinstance(v.get("confidence"), (int, float)):

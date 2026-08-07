@@ -25,3 +25,18 @@ def test_still_rejects_real_junk():
 
     with pytest.raises(ValueError):
         parse_verdict("no json at all")
+
+
+def test_recovers_from_unescaped_quotes_in_reasoning():
+    """The model quotes the ticket back inside reasoning, which breaks strict
+    JSON. The verdict fields still parse."""
+    raw = '{"severity":"P2","category":"security","confidence":0.85,"reasoning":"the user said "password reset" and clicked"}'
+    v = parse_verdict(raw)
+    assert v["severity"] == "P2" and v["category"] == "security" and v["confidence"] == 0.85
+
+
+def test_field_extraction_needs_all_three_fields():
+    import pytest
+
+    with pytest.raises(ValueError):
+        parse_verdict('{"severity":"P2","reasoning":"broken "quote" here"}')
