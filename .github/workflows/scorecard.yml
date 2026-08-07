@@ -1,0 +1,77 @@
+name: scorecard
+
+# Callable from any repo whose changes can move the fleet's judgment.
+# Without secrets it still runs the offline checks (gate logic, golden-set
+# integrity), so a fork PR is never silently unverified.
+on:
+  workflow_call:
+    inputs:
+      mode:
+        description: offline (gates only) or live (both brains)
+        required: false
+        default: offline
+        type: string
+    secrets:
+      ANTHROPIC_API_KEY:
+        required: false
+      AZURE_BRAIN_URL:
+        required: false
+      AZURE_BRAIN_KEY:
+        required: false
+    outputs:
+      summary:
+        description: markdown scorecard
+        value: ${{ jobs.score.outputs.summary }}
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    outputs:
+      summary: ${{ steps.report.outputs.summary }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: mariaangelikabuilds/meridian-evals
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -q pytest
+      - name: gate logic and golden-set integrity
+        run: python -m pytest tests/ -q
+      - name: live scorecard
+        if: ${{ inputs.mode == 'live' || github.event_name != 'workflow_call' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          AZURE_BRAIN_URL: ${{ secrets.AZURE_BRAIN_URL }}
+          AZURE_BRAIN_KEY: ${{ secrets.AZURE_BRAIN_KEY }}
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ] && [ -z "$AZURE_BRAIN_KEY" ]; then
+            echo "no brain credentials available, offline checks only" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          python -m evals.run --brain both --out report.md
+          python -m evals.gate --min-pass-rate 0.8
+      - name: report
+        id: report
+        if: always()
+        run: |
+          if [ -f report.md ]; then
+            cat report.md >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "summary<<EOF"
+              head -12 report.md
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          fi
+      - name: append nightly history
+        if: github.event_name == 'schedule' && hashFiles('report.md') != ''
+        run: |
+          python -m evals.history >> history.md
+          git config user.name "meridian-evals"
+          git config user.email "noreply@github.com"
+          git add history.md
+          git commit -m "chore: nightly scorecard" || exit 0
+          git push

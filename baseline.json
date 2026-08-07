@@ -1,0 +1,8 @@
+{
+ "claude": {
+  "pass_rate": 0.833
+ },
+ "azure": {
+  "pass_rate": 1.0
+ }
+}

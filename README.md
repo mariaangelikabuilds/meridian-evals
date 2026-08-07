@@ -22,6 +22,19 @@ gates actually fire, what does a verdict cost, and how fast does it come back.
   total cost, and median latency per brain.
 - `report.md` in this repo is a real committed run, not an illustration.
 
+## Continuous evaluation
+
+`.github/workflows/scorecard.yml` is a reusable workflow. Any repo whose changes
+can move the fleet's judgment calls it: [meridian-ops](https://github.com/mariaangelikabuilds/meridian-ops)
+runs it on every pull request that touches gates, prompts, the fleet, or the
+model client. The gate fails a PR when a brain drops below the floor or below its
+own committed baseline in `baseline.json`, so an improvement is a visible commit
+and a regression is a red check. Without brain credentials the workflow still
+runs the offline checks, because a fork PR should never be silently unverified.
+
+A nightly scheduled run appends one line to `history.md`. The repo accumulates a
+public reliability record the same way the fleet accumulates run history.
+
 ## Run it
 
 ```
