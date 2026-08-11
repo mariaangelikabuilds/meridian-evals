@@ -29,6 +29,11 @@ on:
 jobs:
   score:
     runs-on: ubuntu-latest
+    # The nightly run appends its result to history.md and commits it. The
+    # default token is read-only, so every scheduled run scored fine and then
+    # died on the push with a 403.
+    permissions:
+      contents: write
     outputs:
       summary: ${{ steps.report.outputs.summary }}
     steps:
