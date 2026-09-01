@@ -43,7 +43,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install -q pytest
+      - run: pip install -q pytest "langfuse<3"
       - name: gate logic and golden-set integrity
         run: python -m pytest tests/ -q
       - name: live scorecard
@@ -52,6 +52,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           AZURE_BRAIN_URL: ${{ secrets.AZURE_BRAIN_URL }}
           AZURE_BRAIN_KEY: ${{ secrets.AZURE_BRAIN_KEY }}
+          LANGFUSE_PUBLIC_KEY: ${{ secrets.LANGFUSE_PUBLIC_KEY }}
+          LANGFUSE_SECRET_KEY: ${{ secrets.LANGFUSE_SECRET_KEY }}
+          LANGFUSE_HOST: https://cloud.langfuse.com
         run: |
           if [ -z "$ANTHROPIC_API_KEY" ] && [ -z "$AZURE_BRAIN_KEY" ]; then
             echo "no brain credentials available, offline checks only" >> "$GITHUB_STEP_SUMMARY"

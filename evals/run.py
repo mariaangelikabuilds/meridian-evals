@@ -7,6 +7,7 @@ import json
 import pathlib
 import sys
 
+from . import tracing
 from .brains import BRAINS
 from .score import score_case, summarize
 
@@ -22,6 +23,9 @@ def run(brain_names: list[str]) -> dict:
             try:
                 result = BRAINS[name](case)
                 rows.append(score_case(case, result))
+                trace = tracing.record_case(name, case, result, rows[-1])
+                if trace:
+                    rows[-1].update(trace)
             except Exception as err:
                 rows.append({"id": case["id"], "passed": False, "checks": {"error": False}, "context_dependent": bool(case.get("context_dependent")), "severity": "-", "category": "-", "confidence": 0, "latency_s": 0, "cost_usd": 0, "error": str(err)[:160]})
                 print(f"    error: {str(err)[:160]}", file=sys.stderr)
