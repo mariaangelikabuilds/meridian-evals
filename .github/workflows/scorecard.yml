@@ -77,6 +77,6 @@ jobs:
           python -m evals.history >> history.md
           git config user.name "meridian-evals"
           git config user.email "noreply@github.com"
-          git add history.md
+          git add history.md results.json report.md
           git commit -m "chore: nightly scorecard" || exit 0
           git push

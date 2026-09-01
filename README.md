@@ -1,5 +1,7 @@
 # meridian-evals
 
+[![scorecard](https://github.com/mariaangelikabuilds/meridian-evals/actions/workflows/scorecard.yml/badge.svg)](https://github.com/mariaangelikabuilds/meridian-evals/actions/workflows/scorecard.yml)
+
 An evaluation pipeline for the triage brains behind [meridian-ops](https://github.com/mariaangelikabuilds/meridian-ops),
 the 24/7 agent fleet, and its Azure re-platform
 [meridian-brain-azure](https://github.com/mariaangelikabuilds/meridian-brain-azure).
