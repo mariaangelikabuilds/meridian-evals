@@ -20,3 +20,7 @@
 | 2026-08-29 | claude 10/11 $0.0429 2.85s | azure 11/11 $0.0022 1.41s |
 | 2026-08-30 | claude 9/11 $0.0399 3.28s | azure 11/11 $0.0023 1.35s |
 | 2026-08-31 | claude 10/11 $0.0443 3.31s | azure 11/11 $0.0022 1.92s |
+
+The denominator moved from 12 to 11 when `real-partner-mailbox` was reclassified
+`context_dependent`: still scored and reported, but outside the gate. 12 cases, 11 scored.
+Nightly rows are appended by CI; `results.json` and `report.md` are the artifacts of record.
