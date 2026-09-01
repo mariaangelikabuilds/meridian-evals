@@ -25,3 +25,4 @@ The denominator moved from 12 to 11 when `real-partner-mailbox` was reclassified
 `context_dependent`: still scored and reported, but outside the gate. 12 cases, 11 scored.
 Nightly rows are appended by CI; `results.json` and `report.md` are the artifacts of record.
 | 2026-09-01 | claude 9/11 $0.0426 4.06s | azure 11/11 $0.0022 1.64s |
+| 2026-09-01 | claude 10/11 $0.043 3.75s | azure 11/11 $0.0022 2.06s |
