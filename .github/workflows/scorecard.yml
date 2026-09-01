@@ -75,7 +75,7 @@ jobs:
             } >> "$GITHUB_OUTPUT"
           fi
       - name: append nightly history
-        if: github.event_name == 'schedule' && hashFiles('report.md') != ''
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && hashFiles('report.md') != ''
         run: |
           python -m evals.history >> history.md
           git config user.name "meridian-evals"
