@@ -12,11 +12,11 @@
     },
     "severity": "P1",
     "category": "outage",
-    "confidence": 0.75,
-    "latency_s": 3.62,
-    "cost_usd": 0.003423,
-    "trace_id": "ff8ae82a-68cf-412d-8d12-06a5800ce3ab",
-    "trace_url": "https://cloud.langfuse.com/trace/ff8ae82a-68cf-412d-8d12-06a5800ce3ab"
+    "confidence": 0.65,
+    "latency_s": 4.28,
+    "cost_usd": 0.003903,
+    "trace_id": "dff04fe5-86dc-44bb-83af-829367e90efb",
+    "trace_url": "https://cloud.langfuse.com/trace/dff04fe5-86dc-44bb-83af-829367e90efb"
    },
    {
     "id": "real-donor-export",
@@ -29,10 +29,10 @@
     "severity": "P2",
     "category": "software",
     "confidence": 0.7,
-    "latency_s": 4.11,
-    "cost_usd": 0.00294,
-    "trace_id": "0f4b1e88-d9e6-4286-b6a3-b6c4cc5810be",
-    "trace_url": "https://cloud.langfuse.com/trace/0f4b1e88-d9e6-4286-b6a3-b6c4cc5810be"
+    "latency_s": 3.53,
+    "cost_usd": 0.00315,
+    "trace_id": "0c99403e-ce6b-4e39-a772-081c72a36794",
+    "trace_url": "https://cloud.langfuse.com/trace/0c99403e-ce6b-4e39-a772-081c72a36794"
    },
    {
     "id": "real-partner-mailbox",
@@ -45,10 +45,10 @@
     "severity": "P1",
     "category": "software",
     "confidence": 0.75,
-    "latency_s": 4.14,
-    "cost_usd": 0.003051,
-    "trace_id": "555e4e01-d868-44d5-808c-099de11acd01",
-    "trace_url": "https://cloud.langfuse.com/trace/555e4e01-d868-44d5-808c-099de11acd01"
+    "latency_s": 3.77,
+    "cost_usd": 0.003096,
+    "trace_id": "0063f4a6-b259-40dd-ae22-04b347c28ee4",
+    "trace_url": "https://cloud.langfuse.com/trace/0063f4a6-b259-40dd-ae22-04b347c28ee4"
    },
    {
     "id": "real-night-kiosk",
@@ -61,11 +61,11 @@
     },
     "severity": "P2",
     "category": "hardware",
-    "confidence": 0.6,
-    "latency_s": 3.49,
-    "cost_usd": 0.003549,
-    "trace_id": "8186e590-862b-46a5-8f41-689015b1839d",
-    "trace_url": "https://cloud.langfuse.com/trace/8186e590-862b-46a5-8f41-689015b1839d"
+    "confidence": 0.62,
+    "latency_s": 4.49,
+    "cost_usd": 0.004749,
+    "trace_id": "17969a4f-d377-4d64-b2ea-497ba5eaaf49",
+    "trace_url": "https://cloud.langfuse.com/trace/17969a4f-d377-4d64-b2ea-497ba5eaaf49"
    },
    {
     "id": "calm-phish-click",
@@ -78,11 +78,11 @@
     },
     "severity": "P1",
     "category": "security",
-    "confidence": 0.85,
-    "latency_s": 3.93,
-    "cost_usd": 0.00366,
-    "trace_id": "a09d7599-3008-4cbe-8851-44ed182d7fb5",
-    "trace_url": "https://cloud.langfuse.com/trace/a09d7599-3008-4cbe-8851-44ed182d7fb5"
+    "confidence": 0.75,
+    "latency_s": 4.23,
+    "cost_usd": 0.00327,
+    "trace_id": "4f3303b4-dc32-43ff-8949-29d3bb201aaa",
+    "trace_url": "https://cloud.langfuse.com/trace/4f3303b4-dc32-43ff-8949-29d3bb201aaa"
    },
    {
     "id": "quiet-security-tell",
@@ -95,11 +95,11 @@
     },
     "severity": "P2",
     "category": "security",
-    "confidence": 0.6,
-    "latency_s": 6.59,
-    "cost_usd": 0.006702,
-    "trace_id": "d2c7750f-1a94-4517-a20d-96dcb33bbb83",
-    "trace_url": "https://cloud.langfuse.com/trace/d2c7750f-1a94-4517-a20d-96dcb33bbb83"
+    "confidence": 0.55,
+    "latency_s": 6.78,
+    "cost_usd": 0.007287,
+    "trace_id": "7f47529f-613d-4941-8b4b-a5e85d4b7b90",
+    "trace_url": "https://cloud.langfuse.com/trace/7f47529f-613d-4941-8b4b-a5e85d4b7b90"
    },
    {
     "id": "vip-lockout",
@@ -111,11 +111,11 @@
     },
     "severity": "P3",
     "category": "access",
-    "confidence": 0.75,
-    "latency_s": 4.73,
-    "cost_usd": 0.00363,
-    "trace_id": "8abd76bb-57b9-4c2d-b5c0-7a09aed1e948",
-    "trace_url": "https://cloud.langfuse.com/trace/8abd76bb-57b9-4c2d-b5c0-7a09aed1e948"
+    "confidence": 0.7,
+    "latency_s": 3.82,
+    "cost_usd": 0.003495,
+    "trace_id": "06785df8-a447-40c4-b9c0-092152197a0e",
+    "trace_url": "https://cloud.langfuse.com/trace/06785df8-a447-40c4-b9c0-092152197a0e"
    },
    {
     "id": "routine-onboarding",
@@ -128,10 +128,10 @@
     "severity": "P4",
     "category": "access",
     "confidence": 0.9,
-    "latency_s": 3.02,
-    "cost_usd": 0.002715,
-    "trace_id": "b57fdc79-e38a-4b93-95fc-2cd32b7d462d",
-    "trace_url": "https://cloud.langfuse.com/trace/b57fdc79-e38a-4b93-95fc-2cd32b7d462d"
+    "latency_s": 3.35,
+    "cost_usd": 0.002565,
+    "trace_id": "0258d803-a332-45cb-9762-cec1f22f5ca8",
+    "trace_url": "https://cloud.langfuse.com/trace/0258d803-a332-45cb-9762-cec1f22f5ca8"
    },
    {
     "id": "everything-down",
@@ -144,10 +144,10 @@
     "severity": "P1",
     "category": "outage",
     "confidence": 0.9,
-    "latency_s": 4.08,
-    "cost_usd": 0.003273,
-    "trace_id": "4f61e893-040b-4642-8bfe-481728d2d95c",
-    "trace_url": "https://cloud.langfuse.com/trace/4f61e893-040b-4642-8bfe-481728d2d95c"
+    "latency_s": 2.78,
+    "cost_usd": 0.002973,
+    "trace_id": "d3d69f22-b6f5-45aa-a1d8-5832276c01ca",
+    "trace_url": "https://cloud.langfuse.com/trace/d3d69f22-b6f5-45aa-a1d8-5832276c01ca"
    },
    {
     "id": "vague-slowness",
@@ -160,10 +160,10 @@
     "severity": "P4",
     "category": "software",
     "confidence": 0.55,
-    "latency_s": 4.47,
-    "cost_usd": 0.003453,
-    "trace_id": "c72e0dcc-10b2-466e-8e56-7d0984beb686",
-    "trace_url": "https://cloud.langfuse.com/trace/c72e0dcc-10b2-466e-8e56-7d0984beb686"
+    "latency_s": 3.86,
+    "cost_usd": 0.003438,
+    "trace_id": "050dad98-ec80-43fc-a82e-777a72711b5d",
+    "trace_url": "https://cloud.langfuse.com/trace/050dad98-ec80-43fc-a82e-777a72711b5d"
    },
    {
     "id": "ransom-note",
@@ -177,10 +177,10 @@
     "severity": "P1",
     "category": "security",
     "confidence": 0.98,
-    "latency_s": 3.65,
-    "cost_usd": 0.003447,
-    "trace_id": "60f7edb3-be1a-412a-a0ee-6591f5325132",
-    "trace_url": "https://cloud.langfuse.com/trace/60f7edb3-be1a-412a-a0ee-6591f5325132"
+    "latency_s": 3.6,
+    "cost_usd": 0.002877,
+    "trace_id": "4c6deeb3-6536-45d0-bc20-65d71d14472d",
+    "trace_url": "https://cloud.langfuse.com/trace/4c6deeb3-6536-45d0-bc20-65d71d14472d"
    },
    {
     "id": "after-hours-badge",
@@ -194,18 +194,18 @@
     "severity": "P2",
     "category": "security",
     "confidence": 0.7,
-    "latency_s": 4.56,
-    "cost_usd": 0.004383,
-    "trace_id": "ef1c58e5-201e-412e-ab67-8e9c0c0dfc95",
-    "trace_url": "https://cloud.langfuse.com/trace/ef1c58e5-201e-412e-ab67-8e9c0c0dfc95"
+    "latency_s": 4.16,
+    "cost_usd": 0.004008,
+    "trace_id": "cfacc3ea-7f34-44fb-bdc9-92a9c2d0df90",
+    "trace_url": "https://cloud.langfuse.com/trace/cfacc3ea-7f34-44fb-bdc9-92a9c2d0df90"
    }
   ],
   "summary": {
    "cases": 11,
    "passed": 10,
    "pass_rate": 0.909,
-   "total_cost_usd": 0.0442,
-   "median_latency_s": 4.11,
+   "total_cost_usd": 0.0448,
+   "median_latency_s": 3.86,
    "failures": [
     "vip-lockout"
    ],
@@ -226,10 +226,10 @@
     "severity": "P1",
     "category": "outage",
     "confidence": 0.9,
-    "latency_s": 2.95,
-    "cost_usd": 0.000194,
-    "trace_id": "7d87c9b2-0f54-4fcb-9e48-1c515ca0945c",
-    "trace_url": "https://cloud.langfuse.com/trace/7d87c9b2-0f54-4fcb-9e48-1c515ca0945c"
+    "latency_s": 3.62,
+    "cost_usd": 0.000214,
+    "trace_id": "d86b5968-7fea-4253-93b8-4f2ea9e5a4f0",
+    "trace_url": "https://cloud.langfuse.com/trace/d86b5968-7fea-4253-93b8-4f2ea9e5a4f0"
    },
    {
     "id": "real-donor-export",
@@ -239,29 +239,29 @@
      "min_severity": true,
      "category": true
     },
-    "severity": "P1",
+    "severity": "P2",
     "category": "software",
     "confidence": 0.9,
-    "latency_s": 1.39,
-    "cost_usd": 0.000171,
-    "trace_id": "7d47f40e-e89f-4b19-8c6c-959020ef5f52",
-    "trace_url": "https://cloud.langfuse.com/trace/7d47f40e-e89f-4b19-8c6c-959020ef5f52"
+    "latency_s": 1.9,
+    "cost_usd": 0.000197,
+    "trace_id": "35e560c6-ed7f-469e-92b3-c64d0443e051",
+    "trace_url": "https://cloud.langfuse.com/trace/35e560c6-ed7f-469e-92b3-c64d0443e051"
    },
    {
     "id": "real-partner-mailbox",
-    "passed": false,
+    "passed": true,
     "context_dependent": true,
     "checks": {
-     "min_severity": false,
+     "min_severity": true,
      "category": true
     },
-    "severity": "P2",
-    "category": "access",
+    "severity": "P1",
+    "category": "software",
     "confidence": 0.9,
-    "latency_s": 1.37,
-    "cost_usd": 0.000189,
-    "trace_id": "dd1ed3b3-9be8-4ad4-af3c-041ad2c9f3d7",
-    "trace_url": "https://cloud.langfuse.com/trace/dd1ed3b3-9be8-4ad4-af3c-041ad2c9f3d7"
+    "latency_s": 2.34,
+    "cost_usd": 0.000198,
+    "trace_id": "675e8d62-6d52-44d2-ade5-ca1645f1b45d",
+    "trace_url": "https://cloud.langfuse.com/trace/675e8d62-6d52-44d2-ade5-ca1645f1b45d"
    },
    {
     "id": "real-night-kiosk",
@@ -275,10 +275,10 @@
     "severity": "P2",
     "category": "hardware",
     "confidence": 0.9,
-    "latency_s": 1.82,
-    "cost_usd": 0.000219,
-    "trace_id": "80dd19c9-8610-4aeb-81e7-136172d68382",
-    "trace_url": "https://cloud.langfuse.com/trace/80dd19c9-8610-4aeb-81e7-136172d68382"
+    "latency_s": 3.63,
+    "cost_usd": 0.000203,
+    "trace_id": "345812d1-26a4-4403-9801-74dcb014720d",
+    "trace_url": "https://cloud.langfuse.com/trace/345812d1-26a4-4403-9801-74dcb014720d"
    },
    {
     "id": "calm-phish-click",
@@ -292,10 +292,10 @@
     "severity": "P2",
     "category": "security",
     "confidence": 0.8,
-    "latency_s": 1.4,
-    "cost_usd": 0.000156,
-    "trace_id": "74467eb2-628c-4dee-9c83-47c19f318d50",
-    "trace_url": "https://cloud.langfuse.com/trace/74467eb2-628c-4dee-9c83-47c19f318d50"
+    "latency_s": 2.54,
+    "cost_usd": 0.000179,
+    "trace_id": "c975a829-87dd-4ad4-a3c2-2711d3e1b5d5",
+    "trace_url": "https://cloud.langfuse.com/trace/c975a829-87dd-4ad4-a3c2-2711d3e1b5d5"
    },
    {
     "id": "quiet-security-tell",
@@ -309,10 +309,10 @@
     "severity": "P2",
     "category": "hardware",
     "confidence": 0.8,
-    "latency_s": 2.06,
-    "cost_usd": 0.000234,
-    "trace_id": "cd7d0f13-5d72-46d2-b6a6-8a43507d7f17",
-    "trace_url": "https://cloud.langfuse.com/trace/cd7d0f13-5d72-46d2-b6a6-8a43507d7f17"
+    "latency_s": 1.51,
+    "cost_usd": 0.000202,
+    "trace_id": "d05dcb7e-6a46-4398-8cf8-3bd31d21da6e",
+    "trace_url": "https://cloud.langfuse.com/trace/d05dcb7e-6a46-4398-8cf8-3bd31d21da6e"
    },
    {
     "id": "vip-lockout",
@@ -325,10 +325,10 @@
     "severity": "P2",
     "category": "access",
     "confidence": 0.9,
-    "latency_s": 1.61,
-    "cost_usd": 0.00017,
-    "trace_id": "129371af-b627-4dcc-b1c9-26cb4d25bcf8",
-    "trace_url": "https://cloud.langfuse.com/trace/129371af-b627-4dcc-b1c9-26cb4d25bcf8"
+    "latency_s": 1.29,
+    "cost_usd": 0.000182,
+    "trace_id": "7fcd8c57-6381-4c19-9a68-40143ffa139b",
+    "trace_url": "https://cloud.langfuse.com/trace/7fcd8c57-6381-4c19-9a68-40143ffa139b"
    },
    {
     "id": "routine-onboarding",
@@ -341,10 +341,10 @@
     "severity": "P4",
     "category": "request",
     "confidence": 0.95,
-    "latency_s": 1.42,
-    "cost_usd": 0.000171,
-    "trace_id": "dccb835c-fa66-4ee9-a513-ae08c9d38a44",
-    "trace_url": "https://cloud.langfuse.com/trace/dccb835c-fa66-4ee9-a513-ae08c9d38a44"
+    "latency_s": 1.72,
+    "cost_usd": 0.000149,
+    "trace_id": "ddfaf9f9-e9c2-4fe6-b5b4-330d39bbc243",
+    "trace_url": "https://cloud.langfuse.com/trace/ddfaf9f9-e9c2-4fe6-b5b4-330d39bbc243"
    },
    {
     "id": "everything-down",
@@ -357,10 +357,10 @@
     "severity": "P1",
     "category": "outage",
     "confidence": 0.95,
-    "latency_s": 2.03,
+    "latency_s": 1.58,
     "cost_usd": 0.000187,
-    "trace_id": "e133ea99-3968-43d1-a8ab-2d43f40e37e4",
-    "trace_url": "https://cloud.langfuse.com/trace/e133ea99-3968-43d1-a8ab-2d43f40e37e4"
+    "trace_id": "22798743-5fb3-4ed0-a3bf-f64de4e49ff1",
+    "trace_url": "https://cloud.langfuse.com/trace/22798743-5fb3-4ed0-a3bf-f64de4e49ff1"
    },
    {
     "id": "vague-slowness",
@@ -370,13 +370,13 @@
      "max_severity": true,
      "category": true
     },
-    "severity": "P4",
-    "category": "hardware",
+    "severity": "P3",
+    "category": "software",
     "confidence": 0.8,
-    "latency_s": 2.29,
-    "cost_usd": 0.000191,
-    "trace_id": "0f12fd5f-d15f-4c13-b349-b7243ab5c44e",
-    "trace_url": "https://cloud.langfuse.com/trace/0f12fd5f-d15f-4c13-b349-b7243ab5c44e"
+    "latency_s": 1.47,
+    "cost_usd": 0.000178,
+    "trace_id": "0f46a5d8-c032-475e-8c88-7e55e2b01bd1",
+    "trace_url": "https://cloud.langfuse.com/trace/0f46a5d8-c032-475e-8c88-7e55e2b01bd1"
    },
    {
     "id": "ransom-note",
@@ -389,11 +389,11 @@
     },
     "severity": "P1",
     "category": "security",
-    "confidence": 0.9,
-    "latency_s": 1.84,
-    "cost_usd": 0.000174,
-    "trace_id": "cbe055ab-7f08-4486-b66b-39e8ed666460",
-    "trace_url": "https://cloud.langfuse.com/trace/cbe055ab-7f08-4486-b66b-39e8ed666460"
+    "confidence": 1,
+    "latency_s": 1.54,
+    "cost_usd": 0.000161,
+    "trace_id": "9429c847-d804-4b79-a59a-927673dfc745",
+    "trace_url": "https://cloud.langfuse.com/trace/9429c847-d804-4b79-a59a-927673dfc745"
    },
    {
     "id": "after-hours-badge",
@@ -407,10 +407,10 @@
     "severity": "P2",
     "category": "security",
     "confidence": 0.9,
-    "latency_s": 2.18,
-    "cost_usd": 0.000164,
-    "trace_id": "c409c1c4-8959-4723-b6c6-7c061bbb27da",
-    "trace_url": "https://cloud.langfuse.com/trace/c409c1c4-8959-4723-b6c6-7c061bbb27da"
+    "latency_s": 2.21,
+    "cost_usd": 0.000196,
+    "trace_id": "9d48c86b-a70b-4a64-bf06-427076331d73",
+    "trace_url": "https://cloud.langfuse.com/trace/9d48c86b-a70b-4a64-bf06-427076331d73"
    }
   ],
   "summary": {
@@ -418,11 +418,9 @@
    "passed": 11,
    "pass_rate": 1.0,
    "total_cost_usd": 0.0022,
-   "median_latency_s": 1.84,
+   "median_latency_s": 1.9,
    "failures": [],
-   "known_context_gaps": [
-    "real-partner-mailbox"
-   ]
+   "known_context_gaps": []
   }
  }
 }
