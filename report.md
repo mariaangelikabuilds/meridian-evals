@@ -4,39 +4,39 @@ The same golden set of labeled incidents, real and adversarial, fired at both pr
 
 | brain | pass rate | cases | total cost | median latency | failures | known context gaps |
 |---|---|---|---|---|---|---|
-| claude-sonnet-5 (Anthropic API) | 82% | 9/11 | $0.0326 | 2.59s | calm-phish-click, vip-lockout | none |
-| gpt-4.1-mini (Azure Functions + Azure OpenAI) | 91% | 10/11 | $0.0023 | 1.1s | real-imaging-down | real-partner-mailbox |
+| claude-sonnet-5 (Anthropic API) | 91% | 10/11 | $0.0403 | 2.74s | vip-lockout | real-partner-mailbox |
+| gpt-4.1-mini (Azure Functions + Azure OpenAI) | 100% | 11/11 | $0.0022 | 1.42s | none | none |
 
 ## claude: per case
 
 | case | pass | severity | category | conf | latency | cost |
 |---|---|---|---|---|---|---|
-| real-imaging-down | yes | P1 | outage | 0.65 | 2.77s | $0.003513 |
-| real-donor-export | yes | P2 | software | 0.7 | 2.05s | $0.00285 |
-| real-partner-mailbox | yes | P1 | software | 0.8 | 2.49s | $0.003291 |
-| real-night-kiosk | yes | P2 | hardware | 0.6 | 2.82s | $0.003504 |
-| calm-phish-click | NO: error (no JSON object in model output) | - | - | 0 | 0s | $0 |
-| quiet-security-tell | yes | P2 | security | 0.6 | 3.31s | $0.004137 |
-| vip-lockout | NO: error (no JSON object in model output) | - | - | 0 | 0s | $0 |
-| routine-onboarding | yes | P4 | access | 0.9 | 2.59s | $0.002895 |
-| everything-down | yes | P1 | outage | 0.9 | 2.68s | $0.002958 |
-| vague-slowness | yes | P4 | software | 0.55 | 1.73s | $0.002508 |
-| ransom-note | yes | P1 | security | 0.97 | 3.22s | $0.003297 |
-| after-hours-badge | yes | P2 | security | 0.65 | 2.48s | $0.003618 |
+| real-imaging-down | yes | P1 | outage | 0.65 | 2.88s | $0.003678 |
+| real-donor-export | yes | P2 | software | 0.65 | 2.74s | $0.00339 |
+| real-partner-mailbox | known gap | P2 | software | 0.75 | 2.49s | $0.003396 |
+| real-night-kiosk | yes | P2 | hardware | 0.6 | 3.51s | $0.004254 |
+| calm-phish-click | yes | P1 | security | 0.85 | 2.52s | $0.003255 |
+| quiet-security-tell | yes | P2 | security | 0.6 | 3.66s | $0.004017 |
+| vip-lockout | NO: min_severity | P3 | access | 0.7 | 2.81s | $0.003435 |
+| routine-onboarding | yes | P4 | access | 0.9 | 2.36s | $0.00264 |
+| everything-down | yes | P1 | outage | 0.9 | 1.97s | $0.002553 |
+| vague-slowness | yes | P4 | software | 0.6 | 2.37s | $0.003048 |
+| ransom-note | yes | P1 | security | 0.98 | 2.16s | $0.002742 |
+| after-hours-badge | yes | P2 | security | 0.75 | 3.2s | $0.003933 |
 
 ## azure: per case
 
 | case | pass | severity | category | conf | latency | cost |
 |---|---|---|---|---|---|---|
-| real-imaging-down | NO: category | P1 | network | 0.85 | 2.41s | $0.00021 |
-| real-donor-export | yes | P2 | software | 0.9 | 1.14s | $0.000213 |
-| real-partner-mailbox | known gap | P2 | email | 0.9 | 1.03s | $0.000198 |
-| real-night-kiosk | yes | P2 | hardware | 0.9 | 1.02s | $0.000219 |
-| calm-phish-click | yes | P2 | security | 0.9 | 1.1s | $0.000208 |
-| quiet-security-tell | yes | P2 | hardware | 0.8 | 1.16s | $0.000188 |
-| vip-lockout | yes | P2 | access | 0.9 | 1.17s | $0.000198 |
-| routine-onboarding | yes | P4 | access | 0.9 | 0.9s | $0.000171 |
-| everything-down | yes | P1 | outage | 0.95 | 1.09s | $0.000169 |
-| vague-slowness | yes | P3 | hardware | 0.7 | 1.22s | $0.000214 |
-| ransom-note | yes | P1 | security | 0.9 | 0.97s | $0.000171 |
-| after-hours-badge | yes | P2 | security | 0.85 | 1.05s | $0.000188 |
+| real-imaging-down | yes | P1 | outage | 0.85 | 3.18s | $0.000226 |
+| real-donor-export | yes | P1 | software | 0.9 | 1.24s | $0.000158 |
+| real-partner-mailbox | yes | P1 | access | 0.9 | 1.17s | $0.000162 |
+| real-night-kiosk | yes | P2 | hardware | 0.9 | 1.48s | $0.000213 |
+| calm-phish-click | yes | P2 | security | 0.9 | 1.21s | $0.000166 |
+| quiet-security-tell | yes | P2 | hardware | 0.8 | 1.3s | $0.000186 |
+| vip-lockout | yes | P2 | access | 0.9 | 1.42s | $0.000166 |
+| routine-onboarding | yes | P4 | request | 0.95 | 1.64s | $0.000186 |
+| everything-down | yes | P1 | outage | 0.95 | 1.24s | $0.000182 |
+| vague-slowness | yes | P3 | hardware | 0.7 | 1.47s | $0.000191 |
+| ransom-note | yes | P1 | security | 0.9 | 1.27s | $0.000166 |
+| after-hours-badge | yes | P2 | security | 0.9 | 1.52s | $0.000178 |
