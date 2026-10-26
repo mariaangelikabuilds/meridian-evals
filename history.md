@@ -79,3 +79,4 @@ Nightly rows are appended by CI; `results.json` and `report.md` are the artifact
 | 2026-10-23 | claude 10/11 $0.0409 2.82s | azure 11/11 $0.0022 1.66s |
 | 2026-10-24 | claude 10/11 $0.0395 2.72s | azure 11/11 $0.0022 1.37s |
 | 2026-10-25 | claude 10/11 $0.0419 2.77s | azure 11/11 $0.0022 1.34s |
+| 2026-10-26 | claude 10/11 $0.0387 2.66s | azure 11/11 $0.0023 2.37s |
